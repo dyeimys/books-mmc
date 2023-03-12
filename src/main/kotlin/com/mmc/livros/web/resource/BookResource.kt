@@ -19,7 +19,15 @@ class BookResource(
 
     @PostMapping
     fun createBook(@RequestBody bookRequest: BookRequest): BookResponse {
-        val bookDto = BookDto(title = bookRequest.title)
+        val bookDto = BookDto(title = bookRequest.title,
+                author = bookRequest.author,
+                genre = bookRequest.genre,
+                isbn = bookRequest.isbn,
+                numBooks = bookRequest.numBooks,
+                numPages = bookRequest.numPages,
+                synopsis = bookRequest.synopsis,
+                publishingCompany = bookRequest.publishingCompany,
+                publishingDate = bookRequest.publishingDate)
         val createBook = bookService.createBook(bookDto)
         return BookResponse(createBook.id, createBook.title)
     }
