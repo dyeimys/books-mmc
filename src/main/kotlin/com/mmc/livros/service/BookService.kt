@@ -13,9 +13,26 @@ class BookService(
 ) {
 
     fun createBook(bookDto: BookDto): BookDto {
-        val bookEntity = BookEntity(title = bookDto.title)
+        val bookEntity = BookEntity(title = bookDto.title,
+                author = bookDto.author,
+                genre = bookDto.genre,
+                isbn = bookDto.isbn,
+                numBooks = bookDto.numBooks,
+                numPages = bookDto.numPages,
+                synopsis = bookDto.synopsis,
+                publishingCompany = bookDto.publishingCompany,
+                publishingDate = bookDto.publishingDate)
         val save = bookRepository.save(bookEntity)
-        return BookDto(save.id, save.title)
+        return BookDto(save.id,
+                save.title,
+                save.author,
+                save.genre,
+                save.numPages,
+                save.synopsis,
+                save.publishingCompany,
+                save.publishingDate,
+                save.numBooks,
+                save.isbn)
     }
 
 }
