@@ -1,0 +1,43 @@
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: book-api
+    namespace: books
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: book-api
+    template:
+      metadata:
+        labels:
+          app: book-api
+      spec:
+        nodeSelector:
+          kubernetes.io/os: linux
+        containers:
+          - name: book-api
+            image: mmcbookregistry.azurecr.io/book-api:0.0.1
+            ports:
+              - containerPort: 80
+            resources:
+              requests:
+                cpu: '0'
+                memory: '0'
+              limits:
+                cpu: '256'
+                memory: 11400G
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: book-api-service
+    namespace: books
+  spec:
+    type: LoadBalancer
+    ports:
+      - targetPort: 8080
+        name: port80
+        port: 8080
+        protocol: TCP
+    selector:
+      app: book-api
