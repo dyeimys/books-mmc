@@ -32,8 +32,6 @@ name: Build and deploy an app to AKS
 on:
   push:
     branches: ["main"]
-  pull_request: # Remover após dar certo
-    branches: [ "main" ]
   workflow_dispatch:
 
 env:
