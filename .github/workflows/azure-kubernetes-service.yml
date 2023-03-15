@@ -41,7 +41,7 @@ env:
   CONTAINER_NAME: "book-api"
   RESOURCE_GROUP: "books"
   CLUSTER_NAME: "cluster-books"
-  DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
+  DEPLOYMENT_MANIFEST_PATH: "deploy/azure-deployment.yml"
 
 jobs:
   buildImage:
