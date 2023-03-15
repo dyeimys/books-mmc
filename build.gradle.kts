@@ -26,9 +26,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
-    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
+    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.15")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.15")
+    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.15")
     implementation("org.mapstruct:mapstruct:1.5.3.Final")
 
     kapt("org.mapstruct:mapstruct-processor:1.5.3.Final")
