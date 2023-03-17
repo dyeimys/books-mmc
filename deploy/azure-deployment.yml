@@ -4,7 +4,7 @@ metadata:
   name: book-api
   namespace: books
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: book-api
@@ -17,7 +17,7 @@ spec:
         kubernetes.io/os: linux
       containers:
         - name: book-api
-          image: mmcbookregistry.azurecr.io/book-api:0.0.1
+          image: mmcbookregistry.azurecr.io/book-api:{{version}}
           ports:
             - containerPort: 80
           resources:
@@ -27,12 +27,6 @@ spec:
             limits:
               cpu: '256'
               memory: 11400G
-          livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 8080
-            initialDelaySeconds: 20
-            periodSeconds: 60
 #- apiVersion: v1
 #  kind: Service
 #  metadata:
